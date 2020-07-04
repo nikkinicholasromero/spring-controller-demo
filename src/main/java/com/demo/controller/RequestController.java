@@ -8,7 +8,7 @@ import java.util.Map;
 @RequestMapping("/requests")
 public class RequestController {
     @GetMapping({"", "/"})
-    public String main(@RequestParam(name = "name", required = false, defaultValue = "World") String name) {
+    public String withRequestParam(@RequestParam(name = "name", required = false, defaultValue = "World") String name) {
         return name;
     }
 

@@ -31,7 +31,7 @@ public class RequestControllerTest {
     }
 
     @Test
-    public void main() throws Exception {
+    public void withoutRequestParam() throws Exception {
         this.mockMvc.perform(get("/requests"))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -40,7 +40,7 @@ public class RequestControllerTest {
     }
 
     @Test
-    public void mainWithRequestParam() throws Exception {
+    public void withRequestParam() throws Exception {
         this.mockMvc.perform(get("/requests?name=Nikki"))
                 .andDo(print())
                 .andExpect(status().isOk())
