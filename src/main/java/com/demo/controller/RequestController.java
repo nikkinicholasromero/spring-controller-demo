@@ -8,29 +8,27 @@ import java.util.Map;
 @RequestMapping("/requests")
 public class RequestController {
     @GetMapping({"", "/"})
-    public void main(@RequestParam(name = "name", required = false, defaultValue = "World") String name) {
-        System.out.println(name);
+    public String main(@RequestParam(name = "name", required = false, defaultValue = "World") String name) {
+        return name;
     }
 
-    @GetMapping({"/{path}","/{path}/"})
-    public void withPathVariable(@PathVariable String path) {
-        System.out.println(path);
+    @GetMapping({"/{path}", "/{path}/"})
+    public String withPathVariable(@PathVariable String path) {
+        return path;
     }
 
     @GetMapping({"/employee"})
-    public void withRequestBody(@RequestBody Employee employee) {
-        System.out.println(employee);
+    public Employee withRequestBody(@RequestBody Employee employee) {
+        return employee;
     }
 
     @GetMapping("/withHeader")
-    public void withHeader(@RequestHeader(value = "some-header") String someHeader) {
-        System.out.println(someHeader);
+    public String withHeader(@RequestHeader(value = "some-header") String someHeader) {
+        return someHeader;
     }
 
     @GetMapping("/withHeaders")
-    public void withHeader(@RequestHeader Map<String, String> headers) {
-        headers.forEach((key, value) -> {
-            System.out.println(key + ":" + value);
-        });
+    public Map<String, String> withHeader(@RequestHeader Map<String, String> headers) {
+        return headers;
     }
 }
