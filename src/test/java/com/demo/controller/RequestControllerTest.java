@@ -15,6 +15,7 @@ import java.time.LocalTime;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -70,7 +71,7 @@ public class RequestControllerTest {
         employee.setSomeDatetime(LocalDateTime.of(2020, 7, 4, 12, 2));
         employee.setActive(true);
 
-        this.mockMvc.perform(get("/requests/employee")
+        this.mockMvc.perform(post("/requests/employee")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(objectMapper.writeValueAsString(employee)))
                 .andDo(print())

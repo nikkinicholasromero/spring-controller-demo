@@ -17,7 +17,7 @@ public class RequestController {
         return path;
     }
 
-    @GetMapping({"/employee"})
+    @PostMapping({"/employee"})
     public Employee withRequestBody(@RequestBody Employee employee) {
         return employee;
     }
